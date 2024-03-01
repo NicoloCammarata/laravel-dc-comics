@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('page-title', 'Comic Show')
+@section('page-title', $comic->title)
 
 @section('main-content')
 <div class="container">

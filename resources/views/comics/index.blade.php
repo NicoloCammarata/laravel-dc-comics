@@ -17,28 +17,46 @@
                         <th scope="col">Title</th>
                         <th scope="col">Price</th>
                         <th scope="col">Series</th>
+                        <th scope="col">Sale Date</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody >
-                   @foreach ($comics as $comic)
-                   <tr>
-                   <th >
-                       {{ $comic->id }}
+                    @foreach ($comics as $comic)
+                        <tr>
+                        <th >
+                            {{ $comic->id }}
 
-                   </th>
-                   <td>
-                      {{ $comic->title }}
+                        </th>
+                        <td>
+                            {{ $comic->title }}
 
-                   </td>
-                   <td>
-                      $ {{ number_format($comic->price, 2, ',', '.') }}
+                        </td>
+                        <td>
+                           $ {{ number_format($comic->price, 2, ',', '.') }}
 
-                   </td>
-                   <td>
-                      {{ $comic->series }}
+                        </td>
+                        <td>
+                           {{ $comic->series }}
 
-                   </td>
-                   </tr>
+                        </td>
+                        <td>
+                            {{ $comic->sale_date }}
+
+                        </td>
+                        <td>
+                            {{ $comic->type }}
+
+                        </td>
+                        <td>
+                            <a href="{{ route('comics.show', ['comic' => $comic->id]) }}" class="btn btn-primary btn-sm">
+                                Details
+
+                            </a>
+                        </td>
+                   
+                         </tr>
                    
                    @endforeach
                 </tbody>
